@@ -10,15 +10,15 @@ int minimum_merge_operation(int arr[], int n){
 			i++;
 			j--;
 		}
+		else if(arr[i]<arr[j]){
+			count++;
+			arr[i+1] = arr[i] + arr[i+1];
+			i++;
+		}
 		else if(arr[i] > arr[j]){
 			count++;
 			arr[j-1] = arr[j] + arr[j-1];
 			j--;
-		}
-		else{
-			count++;
-			arr[i+1] = arr[i] + arr[i+1];
-			i++;
 		}
 	}
 	return count;
@@ -26,7 +26,7 @@ int minimum_merge_operation(int arr[], int n){
 
 
 int main(){
-	int arr[] = {1,4,5,1};
+	int arr[] = {1,4,5,9,1};
 	int n = 4;
 	cout<<minimum_merge_operation(arr,n);
 	return 0;

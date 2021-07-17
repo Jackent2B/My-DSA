@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void merge(int arr[], int start,int mid, int end){
+int merge(int arr[], int start,int mid, int end){
 
     int n1 = mid-start+1;
     int n2 = end - mid;
@@ -18,14 +18,16 @@ void merge(int arr[], int start,int mid, int end){
     int i=0;
     int j=0;
     int k=start;
+    int countInversions = 0;
     while(i<n1 && j<n2){
         if(left[i]<=right[j]){
             arr[k] = left[i];
             i++;
         }
         else{
-         arr[k] = right[j];
+            arr[k] = right[j];
             j++;   
+            countInversions = countInversions + (n1 - i);
         }
         k++;
     }
@@ -41,24 +43,27 @@ void merge(int arr[], int start,int mid, int end){
         j++;
         k++;
     }
+    return countInversions;
 }
 
-void mergerSort(int arr[], int start, int end){
-
-    if(start<end){
-        int mid = start + (end-start)/2; //to prevent overflow condition
-        mergerSort(arr,start,mid);
-        mergerSort(arr,mid+1,end);
-        merge(arr,start,mid,end);        
-    }
-    return;
+int mergerSort(int arr[], int start, int end){
+    if(end - start + 1 < 2)
+        return 0;
+    int countInversions = 0;
+    int mid = start + (end-start)/2; //to prevent overflow condition
+    countInversions += mergerSort(arr,start,mid);
+    countInversions += mergerSort(arr,mid+1,end);
+    countInversions += merge(arr,start,mid,end);
+    return countInversions;
 }
 
 int main(){
-    int arr[] = {4,5,10,20,1};
+    int arr[] = {1, 20, 6, 4, 5};
     int n = sizeof(arr)/sizeof(arr[0]);
-    mergerSort(arr,0,n-1);
+    int countInversions = mergerSort(arr,0,n-1);
     for (int i = 0; i < n; ++i)
         cout<<arr[i]<<" ";
+    cout<<endl;
+    cout<<"Count Inversions "<<countInversions<<endl;
     return 0;
 }

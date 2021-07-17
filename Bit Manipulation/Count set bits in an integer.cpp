@@ -5,6 +5,7 @@ unsigned int count_set_bits(int n)
 {
     unsigned int count = 0;
     while (n) {
+    	cout<<n<<" ";
         n &= (n - 1);
         count++;
     }
@@ -13,6 +14,6 @@ unsigned int count_set_bits(int n)
 
 int main(){
 	int x = 7;
-	cout<<count_set_bits(x);
+	cout<<count_set_bits(x)<<count;
 	return 0;
 }

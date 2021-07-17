@@ -3,8 +3,8 @@ using namespace std;
 
 int maxsum(int arr[], int n)
 {
-   int including = arr[0]; //It means current element(i.e arr[i]) is included.
-   int excluding = 0; //It means current element(i.e. arr[i]) is excluded.
+   int including = arr[0]; //max sum including the prev element.
+   int excluding = 0; //max sum excluding the prev element.
    int excluding_next;
 
    for (int i = 0; i < n; i++)

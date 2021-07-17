@@ -10,8 +10,8 @@ int solve(int ranks[], int chef, int para_needed, int mid){
 		time = ranks[i];
 		int x = 2;
 		while(time<=mid){
-			time = time + (x*ranks[i]);
 			paranthas++;
+			time = time + (x*ranks[i]);
 			x++;
 		}
 		if (paranthas>=para_needed)

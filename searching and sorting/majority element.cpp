@@ -20,22 +20,20 @@ int findAns(int element,int arr[], int n){
 int majorityElement(int arr[], int n)
 {
    
-	int count = 0;
-	int element = 0;
-
-	for (int i = 0; i < n; ++i)
-	{
-		if(count == 0)
-			element = arr[i];
-
-		if(element == arr[i])
-			count++;
-		else 
-			count--;
-	}
+	int maj_index = 0, count = 1;
+    for (int i = 1; i < n; i++) {
+        if (a[maj_index] == a[i])
+            count++;
+        else
+            count--;
+        if (count == 0) {
+            maj_index = i;
+            count = 1;
+        }
+    }
 	//element that we got will be a candidate for to be a majotiy element
 	//so we will confirm it whether it is a majority element or not using findAns() function
-    return findAns(element,arr,n);
+    return findAns(a[maj_index],arr,n);
 }
 
 int main(){

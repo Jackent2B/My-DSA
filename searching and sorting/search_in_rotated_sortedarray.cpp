@@ -54,7 +54,7 @@ int main(){
 //	first half={4,5,6,7} and second half = {0,1,2}
 	cout<<"No. of rotations: "<<rotations<<endl;
 	int search_firsthalf =  binary_search(arr,0,rotations-1,x);
-	int search_secondhalf = binary_search(arr,rotations,n,x);
+	int search_secondhalf = binary_search(arr,rotations,n-1,x);
 
     cout<<"Answer: ";
 	if(search_firsthalf != -1)

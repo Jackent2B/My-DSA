@@ -3,16 +3,16 @@ using namespace std;
 
 int main(){
     int n;
-    cin>>n;
+    cin>>n; //No of soldiers
 
     int arr[n];
     for(int i = 0; i<n; i++)
-        cin>>arr[i];
+        cin>>arr[i]; // array defining the power of each soldier
     
-    int rounds;
+    int rounds; // No. of Rounds
     cin>>rounds;
     while(rounds--){
-        int power;
+        int power; // Power of bishu
         cin>>power;
 
         int sum = 0;

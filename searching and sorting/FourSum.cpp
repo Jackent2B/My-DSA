@@ -20,11 +20,11 @@ vector<vector<int>> getAnswer(int arr[], int n, int target){
 			int last = n-1;
 
 			while(front < last){
-				int sum_2 = arr[front] + arr[last]; 
+				int two_sum = arr[front] + arr[last]; 
 				
-				if(sum_2 < target_remaining)
+				if(two_sum < target_remaining)
 					front++;
-				else if(sum_2 > target_remaining)
+				else if(two_sum > target_remaining)
 					last--;
 				else{
 
@@ -37,10 +37,11 @@ vector<vector<int>> getAnswer(int arr[], int n, int target){
 				
 					ans.push_back(quadraple);	
 
+					//Processing the duplicates of number 3
 					while(front<last && arr[front] == quadraple[2])
 						front++;
-					
-					while(front<last && arr[front] == quadraple[3])
+					//Processing the duplicates of number 4
+					while(front<last && arr[last] == quadraple[3])
 						last--;
 				
 				}

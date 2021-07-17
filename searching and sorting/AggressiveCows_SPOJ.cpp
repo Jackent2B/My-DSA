@@ -4,8 +4,8 @@ using namespace std;
 
 int solve(int barnsCount, int barns[], int cows, int mid){
 
-	int cows_needed = 1;
 	int prev = barns[0];
+	int cows_needed = 1; // cows placed till now 
 	for (int i = 1; i < barnsCount; ++i)
 	{
 		if((barns[i] - prev) >= mid){
@@ -37,10 +37,12 @@ int main(){
 			cin>>barns[i];
 
 		//binary search
-		int start = 0;
+		int start = 0; //it can start from 1 as well(better) beacacuse minimum 
+					   // distance between two stalls can be 1 (not lesser than that)
 		int end = 1e9;
 		int ans;
 		
+		// Importatnt to sort the barns
 		sort(barns , barns + barnsCount);
 		while(start<=end){
 			

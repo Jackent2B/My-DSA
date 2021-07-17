@@ -1,13 +1,9 @@
-// C++ program to count  
-// trailing 0s in n! 
 #include <iostream> 
 using namespace std; 
   
-// Function to return trailing  
-// 0s in factorial of n 
+// Scaler academy video OP  
 int findTrailingZeros(int n) 
 { 
-    // Initialize result 
     int count = 0; 
   
     // Keep dividing n by powers of  
@@ -17,8 +13,6 @@ int findTrailingZeros(int n)
   
     return count; 
 } 
-  
-// Driver Code 
 int main() 
 { 
     int n = 100; 

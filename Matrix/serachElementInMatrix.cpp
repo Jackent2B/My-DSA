@@ -44,7 +44,7 @@ int main(){
 	}
 	int target;
 	cin>>target;
-	if(Searchtarget(vec,target))
+	if(searchMatrix(vec,target))
 		cout<<"true";
 	else
 		cout<<"false";

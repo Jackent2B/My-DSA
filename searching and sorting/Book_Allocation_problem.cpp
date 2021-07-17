@@ -19,7 +19,8 @@ int solve(int books, int pages[],int students,int mid){
 				return 0;
 		}
 	}
-	return 1;}
+	return 1;
+}
 
 int main(){
 	int books;

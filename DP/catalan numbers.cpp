@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Time complexity : O(N)
+int catalanNumber(int n){
+	
+}
+
+// Time complexity : O(N*N)
+int catalanNumber(int n){
+	int catalan[n+1] = {0};
+	catalan[0] = 1;
+	catalan[1] = 1;
+
+	for (int i = 2; i < n+1; i++)
+	{
+		for(int j = 0; j<i; j++){
+			catalan[i] += catalan[j] * catalan[i-j-1];
+		}
+	}
+	return catalan[n];
+}
+
+int main(){
+	int n = 7;
+	cout<<catalanNumber(n);
+	return 0;
+}

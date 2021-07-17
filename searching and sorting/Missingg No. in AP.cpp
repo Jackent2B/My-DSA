@@ -7,21 +7,16 @@ int findMissingUtil(int arr[], int low, int high, int diff)
     if (high <= low) 
         return INT_MAX; 
   
-    // Find index of middle element 
     int mid = low + (high - low) / 2; 
   
-    // The element just after the middle element is missing. 
-    // The arr[mid+1] must exist, because we return when 
-    // (low == high) and take floor of (high-low)/2 
     if (arr[mid + 1] - arr[mid] != diff) 
         return (arr[mid] + diff); 
   
-    // The element just before mid is missing 
     if (mid > 0 && arr[mid] - arr[mid - 1] != diff) 
         return (arr[mid - 1] + diff); 
   
-    // If the elements till mid follow AP, then recur 
-    // for right half 
+    // If the elements till mid follow AP, then recur for right half 
+    //an = a1 + (n-1)*d  : nth term of AP
     if (arr[mid] == arr[0] + mid * diff) 
         return findMissingUtil(arr, mid + 1,  
                                high, diff); 
@@ -29,15 +24,7 @@ int findMissingUtil(int arr[], int low, int high, int diff)
     // Else recur for left half 
     return findMissingUtil(arr, low, mid - 1, diff); 
 } 
-  
-// The function uses findMissingUtil() to  
-// find the missing element in AP.  
-// It assumes that there is exactly one  
-// missing element and may give incorrect result  
-// when there is no missing element or  
-// more than one missing elements. This function  
-// also assumes that the difference in AP is an 
-// integer. 
+ 
 int findMissing(int arr[], int n)  
 { 
 

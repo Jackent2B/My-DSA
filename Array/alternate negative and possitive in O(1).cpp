@@ -5,7 +5,7 @@ using namespace std;
 // [outofplace, cur]
 void rightrotate(int arr[], int n, int outofplace, int cur)
 {
-    char tmp = arr[cur];
+    int tmp = arr[cur];
     for (int i = cur; i > outofplace; i--)
         arr[i] = arr[i - 1];
     arr[outofplace] = tmp;
@@ -45,7 +45,6 @@ void rearrange(int arr[], int n)
     }
 }
  
-// A utility function to print an array 'arr[]' of size 'n'
 void printArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -53,7 +52,6 @@ void printArray(int arr[], int n)
     cout << endl;
 }
  
-// Driver code
 int main()
 {
      

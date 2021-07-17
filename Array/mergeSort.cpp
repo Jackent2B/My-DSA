@@ -41,15 +41,17 @@ void merge(int arr[], int start,int mid, int end){
         j++;
         k++;
     }
+    return;
 }
 
 void mergerSort(int arr[], int start, int end){
-
+    if(end - start + 1 < 2)
+        return;
     int mid = start + (end-start)/2; //to prevent overflow condition
-
     mergerSort(arr,start,mid);
-    mergerSort(arr,mid,end);
+    mergerSort(arr,mid+1,end);
     merge(arr,start,mid,end);
+    return;
 }
 
 int main(){
