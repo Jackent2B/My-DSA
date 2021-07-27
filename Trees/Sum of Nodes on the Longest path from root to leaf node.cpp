@@ -1,67 +1,62 @@
-#include <bits/stdc++.h> 
-using namespace std; 
-  
-struct Node { 
-    int key; 
-    Node *left, *right; 
-}; 
-  
-Node* newNode(int key) 
-{ 
-    Node* temp = new Node; 
-    temp->key = key; 
-    temp->left = temp->right = NULL; 
-    return temp; 
-} 
-  
-int findLargestSubtreeSumUtil(Node* root, int& ans) 
-{ 
-    if (root == NULL)      
-        return 0; 
-      
-    int currSum = root->key +  
-      findLargestSubtreeSumUtil(root->left, ans) 
-      + findLargestSubtreeSumUtil(root->right, ans); 
-  
-    ans = max(ans, currSum); 
-  
-    return currSum; 
-} 
-  
-// Function to find largest subtree sum. 
-int findLargestSubtreeSum(Node* root) 
-{ 
-    if (root == NULL)      
-        return 0; 
-      
-    int ans = INT_MIN; 
-  
-    findLargestSubtreeSumUtil(root, ans); 
-  
-    return ans; 
-} 
-  
-// Driver function 
-int main() 
-{ 
-    /* 
-               1 
-             /   \ 
-            /     \ 
-          -2       3 
-          / \     /  \ 
-         /   \   /    \ 
-        4     5 -6     2 
-    */
-  
-    Node* root = newNode(1); 
-    root->left = newNode(-2); 
-    root->right = newNode(3); 
-    root->left->left = newNode(4); 
-    root->left->right = newNode(5); 
-    root->right->left = newNode(-6); 
-    root->right->right = newNode(2); 
-  
-    cout << findLargestSubtreeSum(root); 
-    return 0; 
-} 
+#include <bits/stdc++.h>
+using namespace std;
+ 
+struct Node {
+    int data;
+    Node* left, *right;
+};
+ 
+Node* getNode(int data)
+{
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+ 
+void solve(Node* root, int sum,int len, int& maxLen, int& maxSum)
+{
+    if (!root) {
+        // update maximum length and maximum sum
+        // according to the given conditions
+        if (maxLen < len) {
+            maxLen = len;
+            maxSum = sum;
+        } else if (maxLen == len && maxSum < sum)
+            maxSum = sum;
+        return;
+    }
+ 
+    // recur for left subtree
+    solve(root->left, sum + root->data,
+                            len + 1, maxLen, maxSum);
+ 
+    // recur for right subtree
+    solve(root->right, sum + root->data,
+                            len + 1, maxLen, maxSum);
+}
+ 
+int sumOfLongRootToLeafPath(Node* root)
+{
+    if (!root)
+        return 0;
+ 
+    int maxSum = INT_MIN, maxLen = 0;
+    solve(root, 0, 0, maxLen, maxSum);
+    return maxSum;
+}
+ 
+int main()
+{
+    Node* root = getNode(4);        
+    root->left = getNode(2);        
+    root->right = getNode(5);        
+    root->left->left = getNode(7);   
+    root->left->right = getNode(1);  
+    root->right->left = getNode(2);  
+    root->right->right = getNode(3); 
+    root->left->right->left = getNode(6);
+    cout << sumOfLongRootToLeafPath(root);
+ 
+    return 0;
+}

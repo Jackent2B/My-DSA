@@ -15,7 +15,7 @@ int getMaxGold(int gold[][MAX], int m, int n)
         for (int row=0; row<m; row++)
         {
             // Gold collected on going to the cell on the right(->)
-            int right = (col == n-1) ? 0 : gold[row][col+1];
+            int right = (col == n-1) ? 0 : goldTable[row][col+1];
  
             // Gold collected on going to the cell to right up (/)
             int right_up = (row==0 || col==n-1)? 0:

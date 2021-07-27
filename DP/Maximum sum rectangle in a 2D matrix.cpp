@@ -2,7 +2,8 @@
 using namespace std;
 
 int kadane(int arr[], int &start, int &finish, int m){
-    int sum = 0, maxSum = INT_MIN, i;
+    int cursum = 0, maxSum = INT_MIN;
+    int i;
     finish = -1;
  
     int local_start = 0;
@@ -47,11 +48,9 @@ int findMaxSum(vector<vector<int>> &M)
 {
     int ROW = M.size();
     int COL = M[0].size();
-    int maxSum = INT_MIN,
-                 finalLeft,
-                 finalRight,
-                 finalTop,
-                 finalBottom;
+    int maxSum = INT_MIN;
+
+    int finalLeft,finalRight,finalTop,finalBottom;
  
     int left, right, i;
     int temp[ROW], sum, start, finish;
