@@ -8,14 +8,15 @@ struct BstNode {
 };
 
 // Reference mycodeschool
-bool isBST(BstNode* root, int minvalue, int maxvalue){
+bool isBSTUtil(BstNode* root, int minvalue, int maxvalue){
 	if(root == NULL)
 		return true;
 
 	if(root->data > minvalue 
 	  && root->data < maxvalue 
-	  && isBST(root->left) 
-	  && isBST(root->right))
+	  && isBST(root->left,minvalue,root->data) 
+	  && isBST(root->right,root->data,maxvalue)
+	  )
 		return true;
 	else
 		return false;

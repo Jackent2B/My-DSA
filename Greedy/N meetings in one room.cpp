@@ -1,3 +1,6 @@
+// algo: sort according to end time.
+// check if start time of next meet is greater than the end time of previous meeting
+// then push it in the ans 
 struct meeting {
     int start;
     int end;
@@ -24,10 +27,13 @@ void maxMeetings(int s[], int e[], int n) {
     
     vector<int> answer;
     
+
     int limit = meet[0].end; 
+    // first meetin can always be performed
     answer.push_back(meet[0].pos); 
     
     for(int i = 1;i<n;i++) {
+        // start time of next meet should be greater than the end time of previous meet
         if(meet[i].start > limit) {
             limit = meet[i].end; 
             answer.push_back(meet[i].pos); 

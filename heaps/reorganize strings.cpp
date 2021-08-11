@@ -13,7 +13,8 @@
         }
         
         string ans = "";
-        while(maxh.size()>1){
+        while(maxh.size()>1){ 
+            // take out two most occuring charcters
             auto t1 = maxh.top();
             auto char1 = t1.second;
             maxh.pop();

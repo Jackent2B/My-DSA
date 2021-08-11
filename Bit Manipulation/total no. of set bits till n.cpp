@@ -15,7 +15,7 @@ int countSetBits(int n)
         return 0;
     int x = largestPowerof2InRange(n);
     int bits_UpTo_LastPowerOf2_InRange = pow(2,x-1)*x; // x * (1 << x-1); 
-    int setBits = n-pow(2,x) + 1; // n - (1 << x-1) + 1;
+    int setBits = n-pow(2,x) + 1; // n - (1 << x) + 1;
     return bits_UpTo_LastPowerOf2_InRange + setBits + countSetBits(n-pow(2,x));
 }
 

@@ -11,7 +11,7 @@ vector<int> nodeToRootPath(Node* root, int num){
 	for(auto child: root->children){
 		vector<int> ptc = nodeToRootPath(child,num);
 		if(ptc.size() > 0){
-			ptc.add(root->data);
+			ptc.push_back(root->data);
 			return ptc;
 		}
 	}

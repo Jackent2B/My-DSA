@@ -30,8 +30,10 @@ bool iscycle(int n, vector<int> adjlist[]){
 	vector<int> vis(n+1,0);
 	for (int i = 1; i <= n; ++i)
 	{
-		if(checkForCycle(i,adjlist,vis))
+		if(!vis[i]){	
+			if(checkForCycle(i,adjlist,vis))
 			return true;
+		}
 	}
 	return false;
 }

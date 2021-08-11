@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
+// algo: sort accoring to max profit
+/*Intution is that we tend to performe each job at the last day of deadline 
+(same as we generally do with our tasks hahahaha)
+*/
+
 
 struct Job
 {

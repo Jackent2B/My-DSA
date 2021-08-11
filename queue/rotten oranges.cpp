@@ -22,7 +22,6 @@ int rotOranges(vector<vector<int>> &vec){
 
 	int r[] = { 0, -1, 0, +1};
 	int c[] = {+1, 0, -1, 0 };
-
 	int level = -1;
 	while(!q.empty()){
 		int size = q.size();
@@ -33,14 +32,14 @@ int rotOranges(vector<vector<int>> &vec){
 				auto p = q.front();
 				int newr = p.first + r[i];
 				int newc = p.second + c[i];
-				q.pop();
-				if( newr>=0 && newc>=0 && newr < vec.size() && newc < vec[0].size() && vec[newr][newc] == 1){
+				if( newr>=0 && newc>=0 && newr < n && newc < m && vec[newr][newc] == 1){
 					q.push({newr,newc});
-					// So that we don't process it again
+					// So that the fresh orange can become rotten
 					vec[newr][newc]=2; 
 					fresh--;
 				}
 			}
+			q.pop();
 		}
 	}
 

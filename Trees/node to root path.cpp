@@ -19,17 +19,20 @@ bool findPath(Node* root, int num){
 	if(root == NULL)
 		return false;
 
+	// root->data == num
 	if(root->data == num){
 		ans.push_back(root->data);
 		return true;
 	}
 
+	// check in left subtree
 	bool findINLeft = findPath(root->left, num);
 	if(findINLeft){
 		ans.push_back(root->data);
 		return true;
 	}
 
+	//check in right subtree
 	bool findINRight = findPath(root->right, num);
 	if(findINRight){
 		ans.push_back(root->data);

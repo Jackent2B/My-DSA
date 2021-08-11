@@ -28,7 +28,7 @@ void diagonal_traversal(Node* root){
 			current = q.front();
 			q.pop();
 			if(current == NULL) break; // it means when we encounters two continues NULL in the queue,
-									   // it would mean that we have covered all he diagonals.
+									   // it would mean that we have covered all the diagonals.
 		}
 		
 		while(current != NULL){

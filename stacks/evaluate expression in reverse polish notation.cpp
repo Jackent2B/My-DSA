@@ -42,7 +42,7 @@ int evaluateExpression(string A){
 		}
 	}
 
-	if(s.size()>1)
+	if(s.size()<1)
 		return 0;
 	else
 		return s.top();

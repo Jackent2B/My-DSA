@@ -20,7 +20,7 @@ void mirrorTree(Node* root){
 
 		Node* temp = root->left;
 		root->left = root->right;
-		root->right = root->left;
+		root->right = temp;
 	}
 	return;
 }
@@ -33,7 +33,6 @@ void printTree(Node* root){
 	}
 
 }
-
 
 int main(){
 	Node* root = new Node(1);

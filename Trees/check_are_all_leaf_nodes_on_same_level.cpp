@@ -13,7 +13,7 @@ struct Node{
 };
 
 
-bool checkLeafNodesHere(Node* root, int level, int *leafLevel){
+bool checkLeafNodesHere(Node* root, int level, int &ma){
     if (root == NULL) return true;
  
     // If a leaf node is encountered
@@ -21,15 +21,15 @@ bool checkLeafNodesHere(Node* root, int level, int *leafLevel){
     {
         // When a leaf node is found 
         // first time
-        if (*leafLevel == 0)
+        if (ma == -1)
         {
-            *leafLevel = level; // Set first found leaf's level
+            ma = level; // Set first found leaf's level
             return true;
         }
  
         // If this is not first leaf node, compare 
         // its level with first leaf's level
-        return (level == *leafLevel);
+        return (level == ma);
     }
  
     // If this node is not leaf, recursively
@@ -39,8 +39,8 @@ bool checkLeafNodesHere(Node* root, int level, int *leafLevel){
 }
 
 bool checkLeafNodes(Node* root){
-	int level = 0,leafLevel = 0;
-	return checkLeafNodesHere(root,level,&leafLevel);
+	int level = 0,ma = -1;
+	return checkLeafNodesHere(root,level,ma);
 }
 
 

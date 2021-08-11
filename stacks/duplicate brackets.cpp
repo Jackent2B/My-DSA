@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-  
+ 
+// Algo: Push all the other elements other than ')'.
+// Whenever we encounter ')', pop() the elements from stack till we encounter '('.
+// Then Pop() this '(' as well.
+
 bool checkRedundancy(string str)
 {
     stack<char> st;
